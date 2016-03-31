@@ -1,0 +1,123 @@
+body, html {
+    font-weight: bold;
+    color: #4ee;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+}
+
+p.start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    font-size: 250%;
+    font-weight: 400;
+    color: #4ee;
+
+    animation: intro 3s ease-out;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    font-family: 'Star Wars', Arial, sans-serif;
+    font-size: 10em;
+    color: black;
+    line-height: 1em;
+    text-shadow: -2px -2px 0 #ffe933, 2px -2px 0 #ffe933, -2px 2px 0 #ffe933, 2px 2px 0 #ffe933;
+    text-align: center;
+
+    animation: logo 7s ease-in 3.5s;
+}
+
+/* the interesting 3D scrolling stuff */
+
+.titles {
+    position: absolute;
+    width: 20em;
+    height: 35em;
+    bottom: 0;
+    left: 50%;
+    margin-left: -10em;
+    font-size: 350%;
+    text-align: justify;
+    overflow: hidden;
+    transform-origin: 50% 100%;
+    transform: perspective(300px) rotateX(25deg);
+    z-index: 1;
+}
+
+.titles:after {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(top, rgba(0, 0, 0, 1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.titles p {
+    text-align: justify;
+    margin: 0.9em 0;
+}
+
+.titles h2 {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.titles .content {
+    position: absolute;
+    top: 100%;
+    animation: scroll 120s linear 8s;
+}
+
+/* animations */
+
+@keyframes intro {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes logo {
+    0% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
+}
